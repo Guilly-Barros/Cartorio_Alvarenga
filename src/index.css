@@ -2,95 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+  ========================================
+  DESIGN SYSTEM - CARTÓRIO ALVARENGA
+  ========================================
+  Paleta derivada das imagens de referência:
+  - Verde musgo escuro para elegância institucional
+  - Terracota/marrom para acolhimento
+  - Rose gold para sofisticação
+  - Neutros para equilíbrio
+  ========================================
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* === Cores Principais (extraídas das imagens) === */
+    --verde-musgo: 150 18% 28%;
+    --verde-musgo-light: 150 15% 35%;
+    --terracota: 22 28% 55%;
+    --terracota-light: 22 25% 65%;
+    --rose-gold: 20 40% 68%;
+    --rose-gold-light: 20 35% 78%;
+    
+    /* === Neutros === */
+    --bege-claro: 35 20% 95%;
+    --bege: 30 15% 88%;
+    --cinza-warm: 30 5% 45%;
+    --cinza-dark: 30 10% 25%;
+    
+    /* === Semânticos (Shadcn) === */
+    --background: 35 20% 97%;
+    --foreground: 30 10% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 30 10% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 30 10% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 150 18% 28%;
+    --primary-foreground: 35 20% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 22 28% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 15% 88%;
+    --muted-foreground: 30 5% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 20 40% 68%;
+    --accent-foreground: 30 10% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 20 40% 68%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
+
+    /* === Tipografia === */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Raleway', 'Segoe UI', sans-serif;
+
+    /* === Sombras === */
+    --shadow-soft: 0 4px 20px -4px hsl(30 10% 20% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(30 10% 20% / 0.12);
+    --shadow-elevated: 0 20px 50px -15px hsl(30 10% 20% / 0.2);
+
+    /* === Transições === */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* === Gradientes === */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--verde-musgo)) 0%, hsl(var(--verde-musgo-light)) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(var(--terracota)) 0%, hsl(var(--terracota-light)) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(var(--foreground) / 0.6) 100%);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 30 10% 10%;
+    --foreground: 35 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 30 10% 12%;
+    --card-foreground: 35 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 30 10% 12%;
+    --popover-foreground: 35 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 20 40% 68%;
+    --primary-foreground: 30 10% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 22 28% 35%;
+    --secondary-foreground: 35 20% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 30 10% 20%;
+    --muted-foreground: 30 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 150 18% 35%;
+    --accent-foreground: 35 20% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 20 40% 68%;
   }
 }
 
@@ -99,7 +127,492 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  /* === Animações de Reveal === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: var(--transition-smooth);
+  }
+
+  .reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: var(--transition-smooth);
+  }
+
+  .reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: var(--transition-smooth);
+  }
+
+  .reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* === Hover Effects === */
+  .hover-lift {
+    transition: var(--transition-base);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .hover-glow {
+    transition: var(--transition-base);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.3);
+  }
+
+  /* === Image Effects === */
+  .image-zoom {
+    overflow: hidden;
+  }
+
+  .image-zoom img {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.08);
+  }
+
+  /* === Timeline === */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, hsl(var(--accent)) 0%, hsl(var(--border)) 100%);
+  }
+
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: hsl(var(--accent));
+    border: 3px solid hsl(var(--background));
+    box-shadow: 0 0 0 2px hsl(var(--accent));
+    position: absolute;
+    left: -7px;
+    top: 0;
+    z-index: 10;
+  }
+
+  /* === Toast === */
+  .toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+  }
+
+  .toast {
+    padding: 16px 24px;
+    border-radius: var(--radius);
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-elevated);
+    border-left: 4px solid hsl(var(--accent));
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .toast.success {
+    border-left-color: hsl(150 60% 45%);
+  }
+
+  .toast.error {
+    border-left-color: hsl(var(--destructive));
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  /* === Underline Animation === */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: hsl(var(--accent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* === Button Variants === */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm font-medium tracking-wide transition-all duration-300;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .btn-primary:hover {
+    background: hsl(var(--verde-musgo-light));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm font-medium tracking-wide transition-all duration-300;
+    background: transparent;
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary));
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-2px);
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm font-medium tracking-wide transition-all duration-300;
+    background: hsl(var(--accent));
+    color: hsl(var(--foreground));
+  }
+
+  .btn-accent:hover {
+    background: hsl(var(--rose-gold-light));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* === Card Styles === */
+  .card-service {
+    @apply p-8 rounded-sm transition-all duration-300;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-service:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* === Modal Backdrop === */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: hsl(var(--foreground) / 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-elevated);
+    z-index: 101;
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* === Accordion === */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .accordion-content.open {
+    max-height: 500px;
+  }
+
+  /* === Form Styles === */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-sm border transition-all duration-300;
+    border-color: hsl(var(--border));
+    background: hsl(var(--background));
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.15);
+  }
+
+  .form-input.error {
+    border-color: hsl(var(--destructive));
+  }
+
+  .form-label {
+    @apply block mb-2 text-sm font-medium;
+    color: hsl(var(--foreground));
+  }
+
+  .form-error {
+    @apply text-sm mt-1;
+    color: hsl(var(--destructive));
+  }
+
+  /* === Back to Top Button === */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition-base);
+    z-index: 50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: hsl(var(--verde-musgo-light));
+    transform: translateY(-3px);
+  }
+
+  /* === Parallax === */
+  .parallax-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .parallax-element {
+    will-change: transform;
+  }
+
+  /* === Menu Mobile === */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-elevated);
+    z-index: 200;
+    transition: right 0.3s ease-out;
+  }
+
+  .mobile-menu.open {
+    right: 0;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: hsl(var(--foreground) / 0.5);
+    z-index: 199;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-base);
+  }
+
+  .menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* === Hamburger === */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 2px;
+    background: hsl(var(--foreground));
+    transition: var(--transition-base);
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-verde-musgo {
+    background-color: hsl(var(--verde-musgo));
+  }
+
+  .bg-terracota {
+    background-color: hsl(var(--terracota));
+  }
+
+  .bg-rose-gold {
+    background-color: hsl(var(--accent));
+  }
+
+  .bg-bege {
+    background-color: hsl(var(--bege));
+  }
+
+  .text-verde-musgo {
+    color: hsl(var(--verde-musgo));
+  }
+
+  .text-terracota {
+    color: hsl(var(--terracota));
+  }
+
+  .text-rose-gold {
+    color: hsl(var(--accent));
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .letter-spacing-wide {
+    letter-spacing: 0.15em;
   }
 }
