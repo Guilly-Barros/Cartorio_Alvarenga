@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Send, Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import { Send, Phone, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react";
 
 interface FormData {
   nome: string;
@@ -18,36 +18,52 @@ interface FormErrors {
 }
 
 interface Toast {
-  type: 'success' | 'error' | 'info';
+  type: "success" | "error" | "info";
   message: string;
 }
 
 const Contato = () => {
   const sectionRef = useRef<HTMLElement>(null);
+
   const [formData, setFormData] = useState<FormData>({
-    nome: '',
-    email: '',
-    telefone: '',
-    assunto: '',
-    mensagem: '',
+    nome: "",
+    email: "",
+    telefone: "",
+    assunto: "",
+    mensagem: "",
   });
+
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
+
+  // WhatsApp (55 + DDD + número, sem símbolos)
+  const WHATSAPP_NUMBER = "556434981505";
+
+  // Mapeia o valor do select para o rótulo "bonito"
+  const ASSUNTO_LABEL: Record<string, string> = {
+    escritura: "Escritura Pública",
+    procuracao: "Procuração",
+    reconhecimento: "Reconhecimento de Firma",
+    autenticacao: "Autenticação",
+    inventario: "Inventário Extrajudicial",
+    divorcio: "Divórcio Extrajudicial",
+    outros: "Outros",
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            entry.target.classList.add("active");
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = sectionRef.current?.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const elements = sectionRef.current?.querySelectorAll(".reveal, .reveal-left, .reveal-right");
     elements?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -64,90 +80,107 @@ const Contato = () => {
     const newErrors: FormErrors = {};
 
     if (!formData.nome.trim()) {
-      newErrors.nome = 'Nome é obrigatório';
+      newErrors.nome = "Nome é obrigatório";
     } else if (formData.nome.trim().length < 3) {
-      newErrors.nome = 'Nome deve ter pelo menos 3 caracteres';
+      newErrors.nome = "Nome deve ter pelo menos 3 caracteres";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'E-mail é obrigatório';
+      newErrors.email = "E-mail é obrigatório";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'E-mail inválido';
+      newErrors.email = "E-mail inválido";
     }
 
     if (!formData.telefone.trim()) {
-      newErrors.telefone = 'Telefone é obrigatório';
-    } else if (!/^\(?\d{2}\)?[\s.-]?\d{4,5}[\s.-]?\d{4}$/.test(formData.telefone.replace(/\s/g, ''))) {
-      newErrors.telefone = 'Telefone inválido';
+      newErrors.telefone = "Telefone é obrigatório";
+    } else if (!/^\(?\d{2}\)?[\s.-]?\d{4,5}[\s.-]?\d{4}$/.test(formData.telefone.replace(/\s/g, ""))) {
+      newErrors.telefone = "Telefone inválido";
     }
 
     if (!formData.assunto.trim()) {
-      newErrors.assunto = 'Assunto é obrigatório';
+      newErrors.assunto = "Assunto é obrigatório";
     }
 
     if (!formData.mensagem.trim()) {
-      newErrors.mensagem = 'Mensagem é obrigatória';
+      newErrors.mensagem = "Mensagem é obrigatória";
     } else if (formData.mensagem.trim().length < 10) {
-      newErrors.mensagem = 'Mensagem deve ter pelo menos 10 caracteres';
+      newErrors.mensagem = "Mensagem deve ter pelo menos 10 caracteres";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
-      setToast({ type: 'error', message: 'Por favor, corrija os erros no formulário.' });
+      setToast({ type: "error", message: "Por favor, corrija os erros no formulário." });
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simular envio
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setToast({ type: 'success', message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.' });
-    setFormData({ nome: '', email: '', telefone: '', assunto: '', mensagem: '' });
+
+    const assuntoLabel = ASSUNTO_LABEL[formData.assunto] ?? formData.assunto;
+
+    const text = `Nome Completo: ${formData.nome}
+E-mail: ${formData.email}
+Telefone: ${formData.telefone}
+Assunto: ${assuntoLabel}
+Mensagem: ${formData.mensagem}`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+    // Abre imediatamente para evitar bloqueio de popup
+    window.open(url, "_blank", "noopener,noreferrer");
+
+    // Feedback visual + limpeza (conforme solicitado)
+    setToast({ type: "success", message: "Abrindo WhatsApp com sua mensagem..." });
+    setFormData({ nome: "", email: "", telefone: "", assunto: "", mensagem: "" });
+
     setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
   const copyToClipboard = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      setToast({ type: 'info', message: `${label} copiado para a área de transferência!` });
+      setToast({ type: "info", message: `${label} copiado para a área de transferência!` });
     } catch {
-      setToast({ type: 'error', message: 'Não foi possível copiar.' });
+      setToast({ type: "error", message: "Não foi possível copiar." });
     }
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      label: 'Telefone',
-      value: '(62) 9XXXX-XXXX',
-      action: () => copyToClipboard('62999999999', 'Telefone'),
+      label: "Telefone",
+      value: "(64) 3498-1505",
+      action: () => copyToClipboard("6434981505", "Telefone"),
     },
     {
       icon: Mail,
-      label: 'E-mail',
-      value: 'contato@cartorioexemplo.com.br',
-      action: () => copyToClipboard('contato@cartorioexemplo.com.br', 'E-mail'),
+      label: "E-mail",
+      value: "contato@cartorioexemplo.com.br",
+      action: () => copyToClipboard("contato@cartorioexemplo.com.br", "E-mail"),
     },
     {
       icon: MapPin,
-      label: 'Endereço',
-      value: 'Av. Principal, 123 – Centro, Goiânia/GO',
-      action: () => window.open('https://maps.google.com/?q=Av.+Principal,+123,+Centro,+Goiânia,+GO', '_blank'),
+      label: "Endereço",
+      value: "Rua. Matilde, Qd.61, Lt.07 – Av.Boa Nova, Prof.Jamil/GO",
+      action: () =>
+        window.open(
+          "https://www.google.com/maps/place/Tabelionato+de+Notas,+Protestos+e+Registros+de+Professor+Jamil-GO/@-17.2560237,-49.244452,3a,75y,250.24h,88.14t/data=!3m7!1e1!3m5!1syGQdUSK3XhFaysMk3RWDjA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D1.8551604318964792%26panoid%3DyGQdUSK3XhFaysMk3RWDjA%26yaw%3D250.23813561171744!7i16384!8i8192!4m10!1m2!2m1!1zT2bDrWNpbyDDmm5pY28!3m6!1s0x935f738059e5e6a3:0xc51ee70cbba158c7!8m2!3d-17.2560587!4d-49.2445272!15sCg5PZsOtY2lvIMOabmljb5IBD3JlZ2lzdHJ5X29mZmljZeABAA!16s%2Fg%2F11mxzb91ym?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D",
+          "_blank"
+        ),
     },
   ];
 
@@ -159,13 +192,11 @@ const Contato = () => {
           <span className="inline-block text-accent text-sm tracking-[0.3em] uppercase mb-4 reveal">
             Fale Conosco
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6 reveal">
-            Entre em Contato
-          </h2>
+          <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6 reveal">Entre em Contato</h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-6 reveal" />
-          <p className="text-muted-foreground reveal" style={{ transitionDelay: '0.1s' }}>
-            Estamos prontos para atendê-lo. Escolha a forma mais conveniente de entrar em contato 
-            ou preencha o formulário abaixo.
+          <p className="text-muted-foreground reveal" style={{ transitionDelay: "0.1s" }}>
+            Estamos prontos para atendê-lo. Escolha a forma mais conveniente de entrar em contato ou preencha o
+            formulário abaixo.
           </p>
         </div>
 
@@ -193,13 +224,13 @@ const Contato = () => {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/5562999999999"
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full py-5 bg-verde-musgo text-primary-foreground rounded-sm shadow-card hover:bg-verde-musgo-light transition-all duration-300 group"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               <span className="font-medium">Conversar pelo WhatsApp</span>
             </a>
@@ -209,27 +240,32 @@ const Contato = () => {
           <form onSubmit={handleSubmit} className="bg-card p-8 rounded-sm shadow-card reveal-right">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="nome" className="form-label">Nome completo *</label>
+                <label htmlFor="nome" className="form-label">
+                  Nome completo *
+                </label>
                 <input
                   type="text"
                   id="nome"
                   name="nome"
                   value={formData.nome}
                   onChange={handleChange}
-                  className={`form-input ${errors.nome ? 'error' : ''}`}
+                  className={`form-input ${errors.nome ? "error" : ""}`}
                   placeholder="Seu nome"
                 />
                 {errors.nome && <span className="form-error">{errors.nome}</span>}
               </div>
+
               <div>
-                <label htmlFor="email" className="form-label">E-mail *</label>
+                <label htmlFor="email" className="form-label">
+                  E-mail *
+                </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`form-input ${errors.email ? 'error' : ''}`}
+                  className={`form-input ${errors.email ? "error" : ""}`}
                   placeholder="seu@email.com"
                 />
                 {errors.email && <span className="form-error">{errors.email}</span>}
@@ -238,26 +274,31 @@ const Contato = () => {
 
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="telefone" className="form-label">Telefone *</label>
+                <label htmlFor="telefone" className="form-label">
+                  Telefone *
+                </label>
                 <input
                   type="tel"
                   id="telefone"
                   name="telefone"
                   value={formData.telefone}
                   onChange={handleChange}
-                  className={`form-input ${errors.telefone ? 'error' : ''}`}
+                  className={`form-input ${errors.telefone ? "error" : ""}`}
                   placeholder="(62) 99999-9999"
                 />
                 {errors.telefone && <span className="form-error">{errors.telefone}</span>}
               </div>
+
               <div>
-                <label htmlFor="assunto" className="form-label">Assunto *</label>
+                <label htmlFor="assunto" className="form-label">
+                  Assunto *
+                </label>
                 <select
                   id="assunto"
                   name="assunto"
                   value={formData.assunto}
                   onChange={handleChange}
-                  className={`form-input ${errors.assunto ? 'error' : ''}`}
+                  className={`form-input ${errors.assunto ? "error" : ""}`}
                 >
                   <option value="">Selecione um assunto</option>
                   <option value="escritura">Escritura Pública</option>
@@ -273,14 +314,16 @@ const Contato = () => {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="mensagem" className="form-label">Mensagem *</label>
+              <label htmlFor="mensagem" className="form-label">
+                Mensagem *
+              </label>
               <textarea
                 id="mensagem"
                 name="mensagem"
                 value={formData.mensagem}
                 onChange={handleChange}
                 rows={5}
-                className={`form-input resize-none ${errors.mensagem ? 'error' : ''}`}
+                className={`form-input resize-none ${errors.mensagem ? "error" : ""}`}
                 placeholder="Descreva sua solicitação..."
               />
               {errors.mensagem && <span className="form-error">{errors.mensagem}</span>}
@@ -294,7 +337,7 @@ const Contato = () => {
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                  <span>Enviando...</span>
+                  <span>Abrindo WhatsApp...</span>
                 </>
               ) : (
                 <>
@@ -312,9 +355,9 @@ const Contato = () => {
         <div className="toast-container">
           <div className={`toast ${toast.type}`}>
             <div className="flex items-center gap-3">
-              {toast.type === 'success' && <CheckCircle className="w-5 h-5 text-green-600" />}
-              {toast.type === 'error' && <AlertCircle className="w-5 h-5 text-red-600" />}
-              {toast.type === 'info' && <CheckCircle className="w-5 h-5 text-accent" />}
+              {toast.type === "success" && <CheckCircle className="w-5 h-5 text-green-600" />}
+              {toast.type === "error" && <AlertCircle className="w-5 h-5 text-red-600" />}
+              {toast.type === "info" && <CheckCircle className="w-5 h-5 text-accent" />}
               <span className="text-sm text-foreground">{toast.message}</span>
             </div>
           </div>
