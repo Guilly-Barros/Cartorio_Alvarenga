@@ -85,7 +85,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-6">
-              <img src={logoGreen} alt="Cartório Alvarenga" className="h-12 w-auto brightness-0 invert opacity-90" />
+              <img src="src/assets/favicon.png" alt="Cartório Alvarenga" className="h-12 w-auto brightness-0 invert opacity-90" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Segurança jurídica e atendimento humanizado. Há mais de 20 anos oferecendo 
@@ -93,21 +93,21 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="NÃO POSSUI"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/cartorioalvarenga/"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="NÃO POSSUI"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="LinkedIn"
               >
@@ -142,7 +142,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
                   <p className="text-primary-foreground/70">Telefone</p>
-                  <p>(62) 9XXXX-XXXX</p>
+                  <p>(62) 3498-1505</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">

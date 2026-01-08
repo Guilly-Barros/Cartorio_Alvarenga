@@ -178,8 +178,7 @@ Mensagem: ${formData.mensagem}`;
       value: "Rua. Matilde, Qd.61, Lt.07 – Av.Boa Nova, Prof.Jamil/GO",
       action: () =>
         window.open(
-          "https://www.google.com/maps/place/Tabelionato+de+Notas,+Protestos+e+Registros+de+Professor+Jamil-GO/@-17.2560237,-49.244452,3a,75y,250.24h,88.14t/data=!3m7!1e1!3m5!1syGQdUSK3XhFaysMk3RWDjA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D1.8551604318964792%26panoid%3DyGQdUSK3XhFaysMk3RWDjA%26yaw%3D250.23813561171744!7i16384!8i8192!4m10!1m2!2m1!1zT2bDrWNpbyDDmm5pY28!3m6!1s0x935f738059e5e6a3:0xc51ee70cbba158c7!8m2!3d-17.2560587!4d-49.2445272!15sCg5PZsOtY2lvIMOabmljb5IBD3JlZ2lzdHJ5X29mZmljZeABAA!16s%2Fg%2F11mxzb91ym?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D",
-          "_blank"
+          "https://maps.app.goo.gl/JbDenqYKYe92hjiL9"
         ),
     },
   ];
