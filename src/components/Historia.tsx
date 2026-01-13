@@ -3,24 +3,24 @@ import valoresBg from '@/assets/valores-bg.png';
 
 const timelineEvents = [
   {
-    year: '2001',
-    title: 'Fundação',
-    description: 'Inauguração do Cartório Alvarenga em Goiás, com o compromisso de oferecer serviços cartoriais de excelência.',
+    year: 'Inicio',
+    title: 'Raízes que Sustentam',
+    description: 'A caminhada da Dra. Suzana Alvarenga nasce do que é eterno: fé, família e amor. São esses valores que sustentam seus dias, inspiram suas escolhas e dão sentido a cada passo.',
   },
   {
     year: '2010',
-    title: 'Modernização',
-    description: 'Implementação de sistemas digitais e certificação eletrônica, trazendo mais agilidade aos processos.',
-  },
-  {
-    year: '2018',
-    title: 'Reconhecimento',
-    description: 'Certificação de qualidade e prêmio de excelência em atendimento ao cidadão.',
+    title: 'Servir Antes de Liderar',
+    description: 'Antes de assumir um cartório, ela aprendeu a servir com excelência. No Tribunal de Justiça do Estado de Goiás, atuou como assessora da Corregedoria, unindo técnica, responsabilidade e sensibilidade.',
   },
   {
     year: '2024',
-    title: 'Inovação Contínua',
-    description: 'Atendimento online, assinatura digital e compromisso renovado com a comunidade.',
+    title: 'Um Sonho Realizado',
+    description: 'Em 2024, um sonho se tornou realidade: a aprovação no concurso e a honra de atuar como Tabeliã em Mundo Novo-GO. Desde julho, entregou dedicação e carinho em cada atendimento, construindo confiança com trabalho sério.',
+  },
+  {
+    year: '2025',
+    title: 'Um Ciclo Encerra, Outro Inicia',
+    description: 'Em 2025, iniciou um novo capítulo rumo ao Cartório Único de Professor Jamil-GO. Hoje, em 2026, segue oferecendo serviços com segurança jurídica, agilidade e qualidade — e essa história continua, com você e nossa equipe.',
   },
 ];
 

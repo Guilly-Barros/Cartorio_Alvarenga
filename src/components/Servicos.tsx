@@ -229,12 +229,7 @@ const Servicos = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://wa.me/5562999999999"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary flex-1 justify-center"
-                >
+                <a href="#contato" onClick={() => setSelectedService(null)} className="btn-secondary flex-1 justify-center">
                   Solicitar via WhatsApp
                 </a>
                 <a href="#contato" onClick={() => setSelectedService(null)} className="btn-secondary flex-1 justify-center">
