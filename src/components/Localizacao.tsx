@@ -81,21 +81,21 @@ const Localizacao = () => {
             <div className="bg-card p-8 rounded-sm shadow-card mb-8">
               <h3 className="font-display text-xl text-foreground mb-4">Como Chegar</h3>
               <p className="text-muted-foreground mb-4">
-                Estamos localizados no coração de Goiânia, com fácil acesso por transporte 
-                público e estacionamento gratuito disponível nas proximidades.
+                Estamos localizados no coração de Professor Jamil, proximo a 
+                Prefeitura Municipal da cidade tendo vagas de estacionamento a frente do Cartorio.
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Próximo à Praça Cívica
+                  Na Avenida da Prefeitura Municipal
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Linhas de ônibus: 001, 002, 003
+                  Proximo ao Batalhão da Polícia Militar
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Estacionamento público a 100m
+                  Atras da Avenida do Hotel Doura Ponte
                 </li>
               </ul>
             </div>

@@ -3,24 +3,24 @@ import valoresBg from '@/assets/valores-bg.png';
 
 const timelineEvents = [
   {
-    year: '2001',
-    title: 'Fundação',
-    description: 'Inauguração do Cartório Alvarenga em Goiás, com o compromisso de oferecer serviços cartoriais de excelência.',
+    year: 'Início',
+    title: 'Raízes que Sustentam',
+    description: 'A história da Dra. Suzana Alvarenga é marcada por fé, família e propósito — valores que guiam cada etapa da sua caminhada e do seu trabalho.',
   },
   {
     year: '2010',
-    title: 'Modernização',
-    description: 'Implementação de sistemas digitais e certificação eletrônica, trazendo mais agilidade aos processos.',
-  },
-  {
-    year: '2018',
-    title: 'Reconhecimento',
-    description: 'Certificação de qualidade e prêmio de excelência em atendimento ao cidadão.',
+    title: 'Servir antes de liderar',
+    description: 'Por anos, atuou como servidora do Tribunal de Justiça do Estado de Goiás, exercendo com excelência a função de assessora da Corregedoria.',
   },
   {
     year: '2024',
-    title: 'Inovação Contínua',
-    description: 'Atendimento online, assinatura digital e compromisso renovado com a comunidade.',
+    title: 'Um Ciclo Encerra, Outro Começa',
+    description: 'Em 2024, um sonho se tornou realidade: foi aprovada no concurso e assumiu como Tabeliã no Cartório Único de Mundo Novo-GO, onde atuou com dedicação e carinho desde julho de 2024.',
+  },
+  {
+    year: '2026',
+    title: 'Excelência que Continua',
+    description: 'Em 2025, iniciou um novo capítulo rumo ao Cartório Único de Professor Jamil-GO. Hoje, em 2026, segue oferecendo serviços com segurança jurídica, agilidade e qualidade — e essa história continua, com você e nossa equipe.',
   },
 ];
 
@@ -66,20 +66,19 @@ const Historia = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-foreground leading-relaxed reveal-left">
-              O <strong>Cartório Alvarenga</strong>, localizado no Estado de Goiás e liderado por 
-              Suzana Estevam de Almeida Alvarenga, tem como objetivo oferecer serviços extrajudiciais 
-              de alta qualidade, com foco em <em>segurança jurídica, agilidade e simplicidade</em>.
+              A historia da <strong>Dra. Suzana Alvarenga</strong>, é feita de propósito. Daqueles que nascem dentro de casa, no colo da família, e se fortalecem na fé. Para ela, cada fase da vida carrega um chamado: cuidar, servir e construir com amor aquilo que permanece. E foi assim, com os pés no chão e o coração firme, que ela foi traçando seu caminho.
             </p>
             <p className="text-muted-foreground leading-relaxed reveal-left" style={{ transitionDelay: '0.1s' }}>
-              A marca busca consolidar seu nome como sinônimo de profissionalismo, honestidade e 
-              acessibilidade, enquanto moderniza e sofistica seu atendimento e instalações. Atendendo 
-              a um público diversificado, incluindo empresas e clientes do setor agro, o cartório 
-              deseja refletir uma imagem séria, moderna e minimalista.
+              Com essa base sólida, Suzana viveu uma longa etapa de formação profissional no Tribunal de Justiça do Estado de Goiás. Do ano XXXX até XXXX, atuou como servidora, exercendo com excelência a função de assessora da Corregedoria. Ali, dia após dia, construiu uma trajetória marcada por responsabilidade, discrição, técnica e respeito — aprendendo a importância dos detalhes, da segurança jurídica e do atendimento que acolhe com seriedade.
             </p>
             <p className="text-muted-foreground leading-relaxed reveal-left" style={{ transitionDelay: '0.2s' }}>
-              O principal desafio do projeto é criar uma Identidade Visual que integre Tradição e 
-              Modernidade, harmonizando a seriedade e a confiança tradicionalmente associadas aos 
-              cartórios com a modernidade e acessibilidade que nossa comunidade merece.
+              Em 2024, Suzana realizou um grande sonho: foi aprovada no concurso e assumiu como Tabeliã em Mundo Novo-GO, atuando também com o Registro da cidade. Desde julho, atendeu com dedicação e carinho, sempre com foco em orientação e segurança jurídica.
+<br />
+<br />
+              Em 2025, despediu-se de Mundo Novo-GO com gratidão e anunciou um novo passo após a 3ª audiência do Concurso Unificado: assumir em breve o Cartório Único de Professor Jamil-GO, levando a mesma essência de servir bem e com responsabilidade.
+<br />
+<br />
+              Hoje, em 2026, atua no Cartório Único de Professor Jamil-GO com excelência, agilidade e eficiência. E essa história continua sendo construída todos os dias — com trabalho sério, equipe comprometida e você.
             </p>
           </div>
 
