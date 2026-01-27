@@ -72,7 +72,7 @@ const Header = () => {
           {/* Logo */}
           <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="font-display text-primary-foreground text-xl font-semibold">A</span>
+              <img src="src/assets/favicon.png" alt="Logo Cartório Alvarenga" />
             </div>
             <div className="hidden sm:block">
               <span className="text-xs tracking-[0.3em] text-muted-foreground block">CARTÓRIO</span>

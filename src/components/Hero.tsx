@@ -73,8 +73,8 @@ const Hero = () => {
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight mb-6 opacity-0 animate-fade-in"
             style={{ animationDelay: '0.1s' }}
           >
-            Segurança Jurídica e
-            <span className="block text-primary">Atendimento Humanizado</span>
+            Segurança Jurídica com
+            <span className="block text-primary">Humanização e Excelência</span>
           </h1>
 
           {/* Subtitle */}
