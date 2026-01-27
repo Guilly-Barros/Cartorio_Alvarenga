@@ -169,8 +169,8 @@ Mensagem: ${formData.mensagem}`;
     {
       icon: Mail,
       label: "E-mail",
-      value: "contato@cartorioexemplo.com.br",
-      action: () => copyToClipboard("contato@cartorioexemplo.com.br", "E-mail"),
+      value: "contato@cartorioalvarenga.com",
+      action: () => copyToClipboard("contato@cartorioalvarenga.com", "E-mail"),
     },
     {
       icon: MapPin,
