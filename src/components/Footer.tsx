@@ -85,7 +85,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-6">
-              <img src="src/assets/favicon.png" alt="Cartório Alvarenga" className="h-12 w-auto brightness-0 invert opacity-90" />
+              <img src={logoGreen} alt="Cartório Alvarenga" className="h-12 w-auto object-contain" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Segurança jurídica e atendimento humanizado. Há mais de 20 anos oferecendo 

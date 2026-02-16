@@ -22,6 +22,36 @@ interface Service {
   fullDesc: string;
 }
 
+interface ChecklistTextProps {
+  text: string;
+  className?: string;
+  itemClassName?: string;
+}
+
+const ChecklistText = ({ text, className, itemClassName }: ChecklistTextProps) => {
+  const items = text
+    .split('\n')
+    .map((line) => line.replace(/^\s*[-•*]\s*/, '').trim())
+    .filter(Boolean);
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <ul className={className}>
+      {items.map((item, index) => (
+        <li key={`${item}-${index}`} className={itemClassName ?? 'flex items-start gap-2'}>
+          <span aria-hidden="true" className="text-terracota font-semibold leading-relaxed">
+            ✓
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 const services: Service[] = [
   {
     icon: FileText,
@@ -183,7 +213,11 @@ const Servicos = () => {
                   />
                 </div>
                 <h3 className="font-display text-xl text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{service.shortDesc}</p>
+                <ChecklistText
+                  text={service.shortDesc}
+                  className="text-sm text-muted-foreground mb-4 space-y-1"
+                  itemClassName="flex items-start gap-2"
+                />
                 <span className="text-sm text-accent font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                   Ver detalhes
                   <span className="text-lg">→</span>
@@ -224,9 +258,11 @@ const Servicos = () => {
                 </button>
               </div>
 
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                {selectedService.fullDesc}
-              </p>
+              <ChecklistText
+                text={selectedService.fullDesc}
+                className="text-muted-foreground leading-relaxed mb-8 space-y-2"
+                itemClassName="flex items-start gap-2"
+              />
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#contato" onClick={() => setSelectedService(null)} className="btn-secondary flex-1 justify-center">
