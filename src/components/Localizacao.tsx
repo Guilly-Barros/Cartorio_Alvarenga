@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import { MapPin, Clock, ExternalLink, Navigation } from 'lucide-react';
 
 const horarios = [
-  { dia: 'Segunda a Sexta', horario: '08:00 às 17:00' },
-  { dia: 'Sábado', horario: '08:00 às 12:00' },
-  { dia: 'Domingo e Feriados', horario: 'Fechado' },
+  { dia: 'Segunda a Sexta:',  horario: '08:00 às 17:00' },
+  { dia: 'Sábado:', horario: '08:00 às 12:00' },
+  { dia: 'Domingo e Feriados:', horario: 'Fechado' },
 ];
 
 const Localizacao = () => {
@@ -54,12 +54,11 @@ const Localizacao = () => {
                 <div>
                   <h3 className="font-display text-xl text-foreground mb-2">Endereço</h3>
                   <p className="text-muted-foreground">
-                    Av. Principal, 123 – Centro<br />
-                    Goiânia/GO – CEP 74000-000
+                    Rua. Matilde, Qd,61, Lt.07 – Av.Boa Nova, <br />
+                    Prof.Jamil/GO – CEP 75645-000
                   </p>
                 </div>
               </div>
-
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-terracota flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5 text-primary-foreground" />
@@ -82,28 +81,28 @@ const Localizacao = () => {
             <div className="bg-card p-8 rounded-sm shadow-card mb-8">
               <h3 className="font-display text-xl text-foreground mb-4">Como Chegar</h3>
               <p className="text-muted-foreground mb-4">
-                Estamos localizados no coração de Goiânia, com fácil acesso por transporte 
-                público e estacionamento gratuito disponível nas proximidades.
+                Estamos localizados no coração de Professor Jamil, proximo a 
+                Prefeitura Municipal da cidade tendo vagas de estacionamento a frente do Cartorio.
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Próximo à Praça Cívica
+                  Na Avenida da Prefeitura Municipal
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Linhas de ônibus: 001, 002, 003
+                  Proximo ao Batalhão da Polícia Militar
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Estacionamento público a 100m
+                  Atras da Avenida do Hotel Doura Ponte
                 </li>
               </ul>
             </div>
 
             {/* Map Button */}
             <a
-              href="https://maps.google.com/?q=Av.+Principal,+123,+Centro,+Goiânia,+GO"
+              href="https://maps.app.goo.gl/JbDenqYKYe92hjiL9"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full justify-center"
@@ -119,7 +118,7 @@ const Localizacao = () => {
             <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-card bg-muted">
               <iframe
                 title="Localização do Cartório Alvarenga"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.8661853669887!2d-49.2588889!3d-16.6799999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef11d8e8bf8c5%3A0x6b9bee6e4c7f4b0b!2sPra%C3%A7a%20C%C3%ADvica%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1702400000000!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15240.923753505178!2d-49.2635816!3d-17.2560587!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935f738059e5e6a3%3A0xc51ee70cbba158c7!2sTabelionato%20de%20Notas%2C%20Protestos%20e%20Registros%20de%20Professor%20Jamil-GO!5e0!3m2!1spt-BR!2sbr!4v1767789806142!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
