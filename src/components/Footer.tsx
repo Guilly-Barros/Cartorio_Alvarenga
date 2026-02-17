@@ -10,7 +10,7 @@ import {
   Linkedin,
   CheckCircle
 } from 'lucide-react';
-import logoGreen from '@/assets/logo-green.png';
+import logoGreen from '@/assets/favicon.png';
 
 const quickLinks = [
   { href: '#inicio', label: 'Início' },
@@ -88,30 +88,15 @@ const Footer = () => {
               <img src={logoGreen} alt="Cartório Alvarenga" className="h-12 w-auto object-contain" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Segurança jurídica e atendimento humanizado. Há mais de 20 anos oferecendo 
-              serviços cartoriais de excelência em Goiás.
+            Ofício Único de Registro de Imóveis, Registro Civil de Pessoas Jurídicas, Registro de Títulos e Documentos, Registro Civil de Pessoas Naturais, Tabelionato de Protesto de Títulos, Tabelionato de Notas e Tabelionato e Oficialato de Registro de Contratos Marítimos.<br></br>Código CNJ - CNS: 147439
             </p>
             <div className="flex gap-3">
-              <a
-                href="NÃO POSSUI"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
               <a
                 href="https://www.instagram.com/cartorioalvarenga/"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="NÃO POSSUI"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -149,7 +134,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
                   <p className="text-primary-foreground/70">E-mail</p>
-                  <p>contato@cartorioexemplo.com.br</p>
+                  <p>contato@cartorioalvarenga.com.br</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -160,33 +145,6 @@ const Footer = () => {
                 </div>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="reveal" style={{ transitionDelay: '0.3s' }}>
-            <h3 className="font-display text-lg mb-6">Newsletter</h3>
-            <p className="text-primary-foreground/70 text-sm mb-4">
-              Receba novidades sobre nossos serviços e informações úteis sobre documentação.
-            </p>
-            <form onSubmit={handleSubscribe} className="relative">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Seu e-mail"
-                className="w-full px-4 py-3 pr-12 rounded-sm bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:border-accent text-sm"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-accent hover:text-primary-foreground transition-colors"
-                aria-label="Inscrever-se"
-              >
-                {subscribed ? <CheckCircle className="w-5 h-5" /> : <Send className="w-5 h-5" />}
-              </button>
-            </form>
-            {subscribed && (
-              <p className="text-accent text-sm mt-2">Inscrito com sucesso!</p>
-            )}
           </div>
         </div>
 

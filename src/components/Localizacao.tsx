@@ -89,14 +89,6 @@ const Localizacao = () => {
                   <span className="w-2 h-2 bg-accent rounded-full" />
                   Na Avenida da Prefeitura Municipal
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-accent rounded-full" />
-                  Proximo ao Batalhão da Polícia Militar
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-accent rounded-full" />
-                  Atras da Avenida do Hotel Doura Ponte
-                </li>
               </ul>
             </div>
 
