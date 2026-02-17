@@ -10,7 +10,6 @@ import {
   Linkedin,
   CheckCircle
 } from 'lucide-react';
-import logoGreen from '@/assets/favicon.png';
 
 const quickLinks = [
   { href: '#inicio', label: 'Início' },
@@ -85,7 +84,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-6">
-              <img src={logoGreen} alt="Cartório Alvarenga" className="h-12 w-auto object-contain" />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Cartório Alvarenga" className="h-12 w-auto object-contain" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
             Ofício Único de Registro de Imóveis, Registro Civil de Pessoas Jurídicas, Registro de Títulos e Documentos, Registro Civil de Pessoas Naturais, Tabelionato de Protesto de Títulos, Tabelionato de Notas e Tabelionato e Oficialato de Registro de Contratos Marítimos.<br></br>Código CNJ - CNS: 147439
