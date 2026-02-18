@@ -100,7 +100,7 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <a
-            href="https://wa.me/5562999999999"
+            href="https://wa.me/556434981505"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-2 btn-primary text-sm py-3 px-6"
@@ -140,8 +140,8 @@ const Header = () => {
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="font-display text-primary-foreground text-xl font-semibold">A</span>
-              </div>
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo Cartório Alvarenga" />
+            </div>
               <div>
                 <span className="text-xs tracking-[0.3em] text-muted-foreground block">CARTÓRIO</span>
                 <span className="font-display text-lg text-foreground tracking-wide">ALVARENGA</span>
@@ -176,7 +176,7 @@ const Header = () => {
 
           <div className="mt-10 pt-6 border-t border-border">
             <a
-              href="https://wa.me/5562999999999"
+              href="https://wa.me/556434981505"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full justify-center"
