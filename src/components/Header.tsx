@@ -106,7 +106,7 @@ const Header = () => {
             className="hidden lg:flex items-center gap-2 btn-primary text-sm py-3 px-6"
           >
             <Phone className="w-4 h-4" />
-            <span>Fale Conosco</span>
+            <span>Entrar em Contato</span>
           </a>
 
           {/* Mobile Menu Button */}

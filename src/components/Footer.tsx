@@ -140,7 +140,8 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
                   <p className="text-primary-foreground/70">Endereço</p>
-                  <p>Av. Principal, 123 – Centro<br />Goiânia/GO</p>
+                  <p>Rua Matilde Ferrarini Sáfady <br />
+Qd. 61 Lt. 07, Vila Boa Nova</p>
                 </div>
               </li>
             </ul>

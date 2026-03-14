@@ -3,7 +3,7 @@ import { MapPin, Clock, ExternalLink, Navigation } from 'lucide-react';
 
 const horarios = [
   { dia: 'Segunda a Sexta:',  horario: '08:00 às 17:00' },
-  { dia: 'Sábado:', horario: '08:00 às 12:00' },
+  { dia: 'Sábado:', horario: 'Fechado' },
   { dia: 'Domingo e Feriados:', horario: 'Fechado' },
 ];
 
@@ -54,7 +54,8 @@ const Localizacao = () => {
                 <div>
                   <h3 className="font-display text-xl text-foreground mb-2">Endereço</h3>
                   <p className="text-muted-foreground">
-                    Rua. Matilde, Qd,61, Lt.07 – Av.Boa Nova, <br />
+                    Rua Matilde Ferrarini Sáfady <br />
+Qd. 61 Lt. 07, Vila Boa Nova
                     Prof.Jamil/GO – CEP 75645-000
                   </p>
                 </div>
@@ -94,7 +95,7 @@ const Localizacao = () => {
 
             {/* Map Button */}
             <a
-              href="https://maps.app.goo.gl/JbDenqYKYe92hjiL9"
+              href="https://maps.app.goo.gl/GS8RwLeAuK9oi8bB7"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full justify-center"
