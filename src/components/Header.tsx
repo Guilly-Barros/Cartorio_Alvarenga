@@ -18,7 +18,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Scroll spy
       const sections = navLinks.map(link => link.href.substring(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -69,15 +68,13 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo Cartório Alvarenga" />
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xs tracking-[0.3em] text-muted-foreground block">CARTÓRIO</span>
-              <span className="font-display text-lg text-foreground tracking-wide">ALVARENGA</span>
-            </div>
+          {/* Logo Corrigida - Desktop */}
+          <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="flex items-center group">
+            <img 
+              src={`${import.meta.env.BASE_URL}logo2.svg`} 
+              alt="Logo Cartório Alvarenga" 
+              className="h-12 w-auto" 
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -138,14 +135,13 @@ const Header = () => {
       >
         <div className="p-6">
           <div className="flex items-center justify-between mb-10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo Cartório Alvarenga" />
-            </div>
-              <div>
-                <span className="text-xs tracking-[0.3em] text-muted-foreground block">CARTÓRIO</span>
-                <span className="font-display text-lg text-foreground tracking-wide">ALVARENGA</span>
-              </div>
+            {/* Logo Corrigida - Mobile */}
+            <div className="flex items-center">
+              <img 
+                src={`${import.meta.env.BASE_URL}logo2.svg`} 
+                alt="Logo Cartório Alvarenga" 
+                className="h-10 w-auto" 
+              />
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
