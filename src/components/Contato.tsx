@@ -175,7 +175,7 @@ Mensagem: ${formData.mensagem}`;
     {
       icon: MapPin,
       label: "Endereço",
-      value: "Rua. Matilde, Qd.61, Lt.07 – Av.Boa Nova, Prof.Jamil/GO",
+      value: "Rua Matilde Ferrarini Sáfady, Qd. 61 Lt. 07, Vila Boa Nova",
       action: () =>
         window.open(
           "https://maps.app.goo.gl/JbDenqYKYe92hjiL9"
