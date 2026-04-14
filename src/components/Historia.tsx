@@ -66,18 +66,18 @@ const Historia = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-foreground leading-relaxed reveal-left">
-              A historia da <strong>Dra. Suzana Alvarenga</strong>, é feita de propósito. Daqueles que nascem dentro de casa, no colo da família, e se fortalecem na fé. Para ela, cada fase da vida carrega um chamado: cuidar, servir e construir com amor aquilo que permanece. E foi assim, com os pés no chão e o coração firme, que ela foi traçando seu caminho.
+              O Cartório Alvarenga nasceu com o propósito fundamental de ser mais do que um balcão de serviços: nascemos para ser o porto seguro jurídico da comunidade de Professor Jamil. Nossa trajetória é construída diariamente sobre o pilar da confiança, unindo a tradição do rigor normativo à modernidade de um atendimento ágil e resolutivo.
             </p>
             <p className="text-muted-foreground leading-relaxed reveal-left" style={{ transitionDelay: '0.1s' }}>
-              Com essa base sólida, Suzana viveu uma longa etapa de formação profissional no Tribunal de Justiça do Estado de Goiás. Do ano XXXX até XXXX, atuou como servidora, exercendo com excelência a função de assessora da Corregedoria. Ali, dia após dia, construiu uma trajetória marcada por responsabilidade, discrição, técnica e respeito — aprendendo a importância dos detalhes, da segurança jurídica e do atendimento que acolhe com seriedade.
+              Desde o início, entendemos que cada documento que passa por nossas mãos representa um sonho, uma conquista ou a segurança de uma família. Por isso, consolidamos nossa atuação com foco em soluções complexas — como REURB, inventários e regularização rural — sempre buscando prevenir litígios e oferecer clareza onde houver dúvida
             </p>
             <p className="text-muted-foreground leading-relaxed reveal-left" style={{ transitionDelay: '0.2s' }}>
-              Em 2024, Suzana realizou um grande sonho: foi aprovada no concurso e assumiu como Tabeliã em Mundo Novo-GO, atuando também com o Registro da cidade. Desde julho, atendeu com dedicação e carinho, sempre com foco em orientação e segurança jurídica.
-<br />
-<br />
-              Em 2025, despediu-se de Mundo Novo-GO com gratidão e anunciou um novo passo após a 3ª audiência do Concurso Unificado: assumir em breve o Cartório Único de Professor Jamil-GO, levando a mesma essência de servir bem e com responsabilidade.
-<br />
-<br />
+              Nossa evolução é marcada pelo aperfeiçoamento técnico contínuo e pela crença de que a tecnologia deve servir para humanizar, não para afastar. Somos uma equipe unida pelo compromisso com a ética, a discrição e a transparência, trabalhando incansavelmente para impulsionar o desenvolvimento social da nossa região.
+              <br />
+              <br />
+              Hoje, o Cartório Alvarenga é referência em excelência, mantendo o olhar atento às necessidades de cada usuário e o coração voltado para o bem-estar da nossa cidade.
+              <br />
+              <br />
               Hoje, em 2026, atua no Cartório Único de Professor Jamil-GO com excelência, agilidade e eficiência. E essa história continua sendo construída todos os dias — com trabalho sério, equipe comprometida e você.
             </p>
           </div>
